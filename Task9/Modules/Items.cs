@@ -25,10 +25,10 @@ namespace Task9.Modules
 
         public class FoodItem : Item
         {
-            public DateTime productionDate { get; set; }
-            public DateTime expiryDate { get; set; }
+            public Date productionDate { get; set; }
+            public Date expiryDate { get; set; }
 
-            public FoodItem(string name, int quantity, DateTime prodDate, DateTime expDate)
+            public FoodItem(string name, int quantity, Date prodDate, Date expDate)
                 : base(name, quantity)
             {
                 productionDate = prodDate;
@@ -41,7 +41,7 @@ namespace Task9.Modules
             public readonly int minTemperature;
             public readonly int maxTemperature;
 
-            public RefrigeratedItem(string name, int quantity,DateTime prodDate, DateTime expDate, int minTemp, int maxTemp)
+            public RefrigeratedItem(string name, int quantity, Date prodDate, Date expDate, int minTemp, int maxTemp)
                 : base (name, quantity, prodDate, expDate)
             {
                 minTemperature = minTemp;
@@ -51,9 +51,9 @@ namespace Task9.Modules
 
         public class ElectronicItem : Item
         {
-            public DateTime guaranteeDate;
+            public Date guaranteeDate;
 
-            public ElectronicItem(string name, int quantity, DateTime guarDate)
+            public ElectronicItem(string name, int quantity, Date guarDate)
                 :base(name, quantity)
             {
                 guaranteeDate = guarDate;
@@ -62,11 +62,11 @@ namespace Task9.Modules
 
         public class Date
         {
-            public readonly DateTime GivenDate;
+            public readonly DateTime DateParam;
 
             public Date(int day, int month, int year)
             {
-                GivenDate = new DateTime(year, month, day);
+                DateParam = new DateTime(year, month, day);
             }
         }
     }
