@@ -69,6 +69,11 @@ namespace Task9.Modules
                 DateParam = new DateTime(year, month, day);
             }
         }
+
+        public class Stock
+        {
+            public List<Item> itemsInStock;
+        }
     }
 
 
