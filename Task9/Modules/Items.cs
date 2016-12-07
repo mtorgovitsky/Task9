@@ -8,7 +8,7 @@ namespace Task9.Modules
 {
     public class Item
     {
-        public string ProductName;
+        public readonly string ProductName;
         private readonly int ProductID;
         public int Quantity;
 
@@ -36,16 +36,18 @@ namespace Task9.Modules
             }
         }
 
-        //public class RafrigeratedItem : FoodItem
-        //{
-        //    public int minTemperature;
-        //    public int maxTemperature;
+        public class RefrigeratedItem : FoodItem
+        {
+            public readonly int minTemperature;
+            public readonly int maxTemperature;
 
-        //    public RafrigeratedItem()
-        //    {
-
-        //    }
-        //}
+            public RefrigeratedItem(string name, int quantity,DateTime prodDate, DateTime expDate, int minTemp, int maxTemp)
+                : base (name, quantity, prodDate, expDate)
+            {
+                minTemperature = minTemp;
+                maxTemperature = maxTemp;
+            }
+        }
 
         public class ElectronicItem : Item
         {
@@ -55,6 +57,16 @@ namespace Task9.Modules
                 :base(name, quantity)
             {
                 guaranteeDate = guarDate;
+            }
+        }
+
+        public class Date
+        {
+            public readonly DateTime GivenDate;
+
+            public Date(int day, int month, int year)
+            {
+                GivenDate = new DateTime(year, month, day);
             }
         }
     }
