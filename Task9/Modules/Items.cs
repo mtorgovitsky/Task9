@@ -14,7 +14,6 @@ namespace Task9.Modules
 
         static int CurrentID = 1;
 
-
         public Item(string name, int quantity)
         {
             ProductName = name;
@@ -23,58 +22,59 @@ namespace Task9.Modules
             CurrentID++;
         }
 
-        public class FoodItem : Item
+        public override string ToString()
         {
-            public Date productionDate { get; set; }
-            public Date expiryDate { get; set; }
-
-            public FoodItem(string name, int quantity, Date prodDate, Date expDate)
-                : base(name, quantity)
-            {
-                productionDate = prodDate;
-                expiryDate = expDate;
-            }
-        }
-
-        public class RefrigeratedItem : FoodItem
-        {
-            public readonly int minTemperature;
-            public readonly int maxTemperature;
-
-            public RefrigeratedItem(string name, int quantity, Date prodDate, Date expDate, int minTemp, int maxTemp)
-                : base (name, quantity, prodDate, expDate)
-            {
-                minTemperature = minTemp;
-                maxTemperature = maxTemp;
-            }
-        }
-
-        public class ElectronicItem : Item
-        {
-            public Date guaranteeDate;
-
-            public ElectronicItem(string name, int quantity, Date guarDate)
-                :base(name, quantity)
-            {
-                guaranteeDate = guarDate;
-            }
-        }
-
-        public class Date
-        {
-            public readonly DateTime DateParam;
-
-            public Date(int day, int month, int year)
-            {
-                DateParam = new DateTime(year, month, day);
-            }
-        }
-
-        public class Stock
-        {
-            public List<Item> itemsInStock;
+            return ProductName;
         }
     }
+
+    public class FoodItem : Item
+    {
+        public Date productionDate;
+        public Date expiryDate;
+
+        public FoodItem(string name, int quantity, Date prodDate, Date expDate)
+            : base(name, quantity)
+        {
+            productionDate = prodDate;
+            expiryDate = expDate;
+        }
+    }
+
+    public class RefrigeratedItem : FoodItem
+    {
+        public readonly int minTemperature;
+        public readonly int maxTemperature;
+
+        public RefrigeratedItem(string name, int quantity, Date prodDate, Date expDate, int minTemp, int maxTemp)
+            : base(name, quantity, prodDate, expDate)
+        {
+            minTemperature = minTemp;
+            maxTemperature = maxTemp;
+        }
+    }
+
+    public class ElectronicItem : Item
+    {
+        public Date guaranteeDate;
+
+        public ElectronicItem(string name, int quantity, Date guarDate)
+            : base(name, quantity)
+        {
+            guaranteeDate = guarDate;
+        }
+    }
+
+    public class Date
+    {
+        public readonly DateTime DateParam;
+
+        public Date(int day, int month, int year)
+        {
+            DateParam = new DateTime(year, month, day);
+        }
+    }
+
 
 
 }
