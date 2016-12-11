@@ -46,6 +46,10 @@ namespace Task9
             stk.AddItem(new RefrigeratedItem("Refrig6", 2, new Date(6, 12, 2016), new Date(6, 12, 2018), -10, -1));
             stk.AddItem(new RefrigeratedItem("Refrig7", 13, new Date(6, 12, 2016), new Date(6, 12, 2020), -10, -1));
 
+            RefrigeratedItem riAdd = new RefrigeratedItem("Leben", 2, new Date(6, 12, 2016), new Date(6, 12, 2018), -10, -1);
+            stk.AddItem(riAdd);
+            stk.RemoveItem(riAdd);
+
             stk.Order(9);
 
             int refrigCount = stk.HowMany(-6);
