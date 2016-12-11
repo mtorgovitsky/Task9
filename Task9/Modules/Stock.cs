@@ -103,7 +103,7 @@ namespace Task9.Modules
                     {
                         RefrigeratedItem tmpRefrig = item as RefrigeratedItem;
                         if (tmpRefrig.minTemperature <= temp && tmpRefrig.maxTemperature >= temp)
-                            refrigRes++;
+                            refrigRes += tmpRefrig.Quantity;
                     }
                 }
             }
